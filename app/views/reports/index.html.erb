@@ -1,0 +1,29 @@
+<div class="container mt-5">
+
+  <h1 class="text-center">All reports</h1>
+
+  <%= button_to "Add report", new_report_path, method: :get, :class => "btn btn-outline-primary" %>
+
+  <% @report.each do |report| %>
+    <hr>
+    <h2><strong><%= report.title %></strong></h2>
+    <h4>User: <%= report.user.first_name %> | <%= report.user.last_name %> | (<%= report.user.email %>)</h4>
+    <p style="font-size: 14pt; font-family: Serif,serif"><%= report.desc %></p>
+
+    <div class="row justify-content-start">
+      <% if report.grade == nil %>
+        <div class="col-1">
+          <%= button_to "Set mark", new_report_mark_path(:id => report.id), method: :get, :class => "btn btn-warning" %>
+        </div>
+      <% else %>
+        <div class="col-1">
+          Mark: <%= report.grade %>
+        </div>
+      <% end %>
+      <div class="col-1">
+        <%= button_to "Remove tje report", delete_report_path(:id => report.id), method: :delete, :class => "btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

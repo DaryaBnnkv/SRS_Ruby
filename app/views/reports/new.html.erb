@@ -1,0 +1,25 @@
+<div class="container text-center pt-5 mt-5">
+  <div class="container text-start">
+    <%= form_for(:report, url: reports_path, class: "form-control") do |f| %>
+
+      <p>
+        Title <br>
+        <%= f.text_field :title, :placeholder => "Enter here your title of report", :required => true, class: "form-control" %>
+      </p>
+
+      <p>
+        Description <br>
+        <%= f.text_area :desc, :required => true, :placeholder => "Enter here your report body", class: "form-control" %>
+      </p>
+
+      <p>
+        <%= f.select(:user_id, @users, { :prompt => "Select the user" }, { :class => "form-select" }) %>
+      </p>
+
+      <p class="text-center d-grid gap-2">
+        <%= f.submit 'Add the report', :class => 'btn btn-success' %>
+      </p>
+
+    <% end %>
+  </div>
+</div>

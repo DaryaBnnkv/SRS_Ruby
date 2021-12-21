@@ -1,0 +1,26 @@
+<div>
+
+  <%= form_for :user, url: users_path do |f| %>
+
+    <p>
+      Email <br>
+      <%= f.text_field :email, :type => 'email', :required => true %>
+    </p>
+
+    <p>
+      First name <br>
+      <%= f.text_field :first_name, :required => true %>
+    </p>
+
+    <p>
+      Last name <br>
+      <%= f.text_field :last_name, :required => true %>
+    </p>
+
+    <p>
+      <%= f.submit "Click", :class => 'btn btn-outline-success' %>
+    </p>
+
+
+  <% end %>
+</div>
